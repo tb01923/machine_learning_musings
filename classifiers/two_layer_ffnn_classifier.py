@@ -11,4 +11,5 @@ class TwoLayerFfNnClassifier(nn.Module):
         )
 
     def forward(self, x):
-        return self.classifier(x)
+        data = x.flatten(start_dim=1)
+        return self.classifier(data)

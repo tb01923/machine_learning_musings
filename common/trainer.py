@@ -21,11 +21,10 @@ def train(classifier: nn.Module, loader: DataLoader, optimizer: optim.Optimizer,
         # for each "tensor of images" in the training set minibatch
         for minibatch in loader:
             data, target = minibatch
-            data = data.flatten(start_dim=1)
 
             # run the classifier
             out = classifier(data)
-            # calculate the loss from the prediciton and the true "label"
+            # calculate the loss from the prediction and the true "label"
             minibatch_loss = loss_fn(out, target)
             # calculate the partial derivatives of the weights, and
             #   have the optimizer update the weights
@@ -52,7 +51,6 @@ def test(classifier: nn.Module, loader: DataLoader, loss_fn):
         computed_loss = 0.0
         # for each minibatch in the loader (TODO, does the tester have minibatches?)
         for data, target in loader:
-            data = data.flatten(start_dim=1)
 
             # run the classifier
             out = classifier(data)
@@ -86,7 +84,6 @@ def plot_loss(title, loss):
 
 def classify(classifier):
     def _classify(data):
-        data = data.flatten(start_dim=1)
         # run the classifier
         out = classifier(data)
         # derive the prediction

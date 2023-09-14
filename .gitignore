@@ -3,7 +3,7 @@
 # Byte-compiled / optimized / DLL files
 .idea/**
 mnist_classification/MNIST/
-
+MNIST/
 
 
 __pycache__/

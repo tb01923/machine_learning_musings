@@ -2,14 +2,12 @@ import torch
 import torch.nn as nn
 import matplotlib.pyplot as plt
 
-import two_layer_classifier as todd_class
 import common.trainer as todd_common
 
 from torch import optim
 from torch.utils.data import Dataset, DataLoader, random_split
 from torchvision.datasets import MNIST
 from torchvision.transforms import ToTensor
-
 
 def mnist_datasets() -> (Dataset, Dataset, Dataset):
     generator = torch.Generator().manual_seed(42)
@@ -39,36 +37,11 @@ def test_and_plot_loss(classifier, learning_rate, training_loss, test_loader):
     print("total accuracy:", accuracy.item())
 
 
-def main():
-    (train_dataset, test_dataset, validation_dataset) = mnist_datasets()
-    (train_loader, test_loader) = mnist_dataloaders(train_dataset, test_dataset)
-
-    # 2. Train the classifier
-    learning_rate = 1e-3
-    mnist_classifier = todd_class.TwoLayerFfNnClassifier(784, 256, 10)
-
-    # instantiate stochastic gradient descent optimizer
-    optimizer: optim.Optimizer = optim.SGD(mnist_classifier.parameters(), lr=learning_rate)
-
-    loss_fn = nn.CrossEntropyLoss()
-
-    # train the classifier, with train   _dataset
-    training_loss = todd_common.train(classifier=mnist_classifier,
-                                      loader=train_loader,
-                                      optimizer=optimizer,
-                                      epochs=40,
-                                      loss_fn=loss_fn)
-
-    test_and_plot_loss(classifier=mnist_classifier,
-                       learning_rate=learning_rate,
-                       training_loss=training_loss,
-                       test_loader=test_loader)
-
+def validate(mnist_classifier: nn.Module, validation_dataset: Dataset):
+    # create classify function
     classify = todd_common.classify(mnist_classifier)
 
-    # save the trained model
-    # torch.save(classifier.state_dict(), 'mnist.pt')
-
+    # do some validation
     labels_map = {
         1: "one",
         2: "two",
@@ -99,4 +72,31 @@ def main():
         plt.show()
 
 
-main()
+def mnist_vector_size():
+    return 784
+def mnist_main(model_architecture: nn.Module):
+    # get data
+    (train_dataset, test_dataset, validation_dataset) = mnist_datasets()
+    (train_loader, test_loader) = mnist_dataloaders(train_dataset, test_dataset)
+
+    learning_rate = 1e-3
+
+    # stochastic gradient descent optimizer, cross entropy loss
+    optimizer: optim.Optimizer = optim.SGD(model_architecture.parameters(), lr=learning_rate)
+    loss_fn = nn.CrossEntropyLoss()
+
+    # train the classifier, with train
+    training_loss = todd_common.train(classifier=model_architecture,
+                                      loader=train_loader,
+                                      optimizer=optimizer,
+                                      epochs=40,
+                                      loss_fn=loss_fn)
+
+    # run a test and plot loss
+    test_and_plot_loss(classifier=model_architecture,
+                       learning_rate=learning_rate,
+                       training_loss=training_loss,
+                       test_loader=test_loader)
+
+    validate(model_architecture, validation_dataset)
+    return model_architecture
