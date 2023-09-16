@@ -1,16 +1,15 @@
 import torch.nn as nn
 import torch.nn.functional as F
 
-
 class RandomCnn(nn.Module):
     def __init__(self):
         super(RandomCnn, self).__init__()
 
         self.features = nn.Sequential(
-            nn.Conv2d(1, 12, kernel_size=5),
+            nn.Conv2d(1, 10, kernel_size=5),
             nn.MaxPool2d(kernel_size=2),
             nn.ReLU(),
-            nn.Conv2d(12, 20, kernel_size=5),
+            nn.Conv2d(10, 20, kernel_size=5),
             nn.Dropout2d(),
             nn.MaxPool2d(kernel_size=2),
             nn.ReLU()
