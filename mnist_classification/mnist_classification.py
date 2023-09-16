@@ -74,7 +74,7 @@ def validate(mnist_classifier: nn.Module, validation_dataset: Dataset):
 
 def mnist_vector_size():
     return 784
-def mnist_main(model_architecture: nn.Module):
+def mnist_main(model_architecture: nn.Module, num_epoch=40):
     # get data
     (train_dataset, test_dataset, validation_dataset) = mnist_datasets()
     (train_loader, test_loader) = mnist_dataloaders(train_dataset, test_dataset)
@@ -89,7 +89,7 @@ def mnist_main(model_architecture: nn.Module):
     training_loss = todd_common.train(classifier=model_architecture,
                                       loader=train_loader,
                                       optimizer=optimizer,
-                                      epochs=40,
+                                      epochs=num_epoch,
                                       loss_fn=loss_fn)
 
     # run a test and plot loss

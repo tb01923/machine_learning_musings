@@ -6,4 +6,4 @@ from mnist_classification.mnist_classification import mnist_main, mnist_vector_s
 # model_architecture = TwoLayerFfNnClassifier(mnist_vector_size(), 256, 10)
 model_architecture = RandomCnn()
 # model_architecture = AlexNet()
-mnist_classifier = mnist_main(model_architecture)
+mnist_classifier = mnist_main(model_architecture, num_epoch=3)
