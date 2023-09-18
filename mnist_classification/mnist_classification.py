@@ -23,9 +23,9 @@ def mnist_datasets() -> (Dataset, Dataset, Dataset):
     return train_dataset, test_dataset, validation_dataset
 
 
-def mnist_dataloaders(train_dataset, test_dataset) -> (DataLoader, DataLoader):
-    train_loader = DataLoader(train_dataset, batch_size=64, shuffle=True)
-    test_loader = DataLoader(test_dataset, batch_size=64, shuffle=False)
+def mnist_dataloaders(train_dataset, test_dataset, batch_size) -> (DataLoader, DataLoader):
+    train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
+    test_loader = DataLoader(test_dataset, batch_size=batch_size, shuffle=False)
     return train_loader, test_loader
 
 
@@ -37,7 +37,7 @@ def test_and_plot_loss(classifier, learning_rate, training_loss, test_loader):
     print("total accuracy:", accuracy.item())
 
 
-def validate(mnist_classifier: nn.Module, validation_dataset: Dataset):
+def validate(mnist_classifier: nn.Module, validation_dataset: Dataset, num_validations=3):
     # create classify function
     classify = todd_common.classify(mnist_classifier)
 
@@ -59,7 +59,7 @@ def validate(mnist_classifier: nn.Module, validation_dataset: Dataset):
 
     # todo: I couldn't figure out how to get this to plt in a grid of say 12
     # https://pytorch.org/tutorials/beginner/basics/data_tutorial.html
-    for i in range(1, 2):
+    for i in range(1, num_validations+1):
         sample_idx = torch.randint(length, size=(1,)).item()
         img, label = validation_dataset[sample_idx]
 
@@ -74,10 +74,10 @@ def validate(mnist_classifier: nn.Module, validation_dataset: Dataset):
 
 def mnist_vector_size():
     return 784
-def mnist_main(model_architecture: nn.Module, num_epoch=40):
+def mnist_main(model_architecture: nn.Module, num_epoch=40, batch_size=64, num_validations=3):
     # get data
     (train_dataset, test_dataset, validation_dataset) = mnist_datasets()
-    (train_loader, test_loader) = mnist_dataloaders(train_dataset, test_dataset)
+    (train_loader, test_loader) = mnist_dataloaders(train_dataset, test_dataset, batch_size)
 
     learning_rate = 1e-3
 
@@ -98,5 +98,5 @@ def mnist_main(model_architecture: nn.Module, num_epoch=40):
                        training_loss=training_loss,
                        test_loader=test_loader)
 
-    validate(model_architecture, validation_dataset)
+    validate(model_architecture, validation_dataset, num_validations)
     return model_architecture
