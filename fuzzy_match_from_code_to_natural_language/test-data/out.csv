@@ -1,0 +1,5 @@
+field_names,Glossary Terms,closest_similarity_score,closest_similarity_algorithm
+POLICY_NUMBERs,Policy Number,1.0,modified_edit_distance
+POL_NUMBER,Policy Number,0.0,modified_edit_distance
+COVERAGE,Coverage,0.0,modified_edit_distance
+ANNUAL_PREMIUM,Guideline Annual Premium,1.0,best_paired_tokens_edit_distance
