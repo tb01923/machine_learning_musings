@@ -2,7 +2,7 @@
 ### Python template
 # Byte-compiled / optimized / DLL files
 .idea/**
-mnist_classification/MNIST/
+neural_networks/mnist/mnist_classification/MNIST/
 MNIST/
 
 

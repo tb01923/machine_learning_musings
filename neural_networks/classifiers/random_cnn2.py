@@ -1,7 +1,7 @@
 import torch.nn as nn
 import torch.nn.functional as F
 
-from classifiers.tap import Tap
+from neural_networks.classifiers.tap import Tap
 
 def print_shape(instance, input):
     shape = str(input.shape)
