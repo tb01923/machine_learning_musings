@@ -1,5 +1,57 @@
-field_names,Glossary Terms,closest_similarity_score,closest_similarity_algorithm
-POLICY_NUMBERs,Policy Number,1.0,modified_edit_distance
-POL_NUMBER,Policy Number,0.0,modified_edit_distance
-COVERAGE,Coverage,0.0,modified_edit_distance
-ANNUAL_PREMIUM,Guideline Annual Premium,1.0,best_paired_tokens_edit_distance
+field_names,Glossary Terms,Definition,closest_similarity_score,closest_similarity_algorithm
+POLICY_NUMBERs,Policy Number,A unique identifier assigned to a policy (e.g. insurance/reinsurance policy).,1.0,modified_edit_distance
+POL_NUMBER,Policy Number,A unique identifier assigned to a policy (e.g. insurance/reinsurance policy).,0.0,modified_edit_distance
+COVERAGE,Coverage,"<html>
+  <head>
+		<style>
+			p {padding:0px; margin:0px;}
+		</style>
+	</head>
+  <body>
+    <p>
+<span style=""color:#000000; font-size:9pt; font-family:Segoe UI;"">A financial services agreement component detailing the circumstances under which a benefit (money or services) will be paid. Effectively this provides protection against a particular risk. In property insurance, coverage identifies elements such as perils insured against, properties covered, locations covered, individuals insured and the limits of indemnification. In life insurance, a coverage identifies elements such as living and death benefits.       
+</span><br><span style=""color:#000000; font-size:9pt; font-family:Segoe UI;"">&#160;&#160;&#160;&#160;&#160;&#160;       
+</span><br><span style=""color:#000000; font-size:9pt; font-family:Segoe UI;"">e.g. Critical illness benefit, part of John's life policy.       
+</span><br><span style=""color:#000000; font-size:9pt; font-family:Segoe UI;"">&#160;&#160;&#160;&#160;&#160;&#160;       
+</span><br><b><span style=""color:#000000; font-size:9pt; font-family:Segoe UI;"">Relationship Between LOB is complex, below example can be used for illustration in its complexity.</span></b><span style=""color:#000000; font-size:9pt; font-family:Segoe UI;""> </span>
+
+    </p>
+
+    <p style=""margin-top:0in;margin-right:0in;margin-bottom:1.1pt;margin-left:.5pt;text-indent:-.5pt;line-height:103%;font-size:11.0pt;font-family:Calibri,sans-serif;color:black;"">
+<span style=""color:#000000; font-size:9pt; font-family:Segoe UI;"">Let&rsquo;s say a customer&rsquo;s information is stolen from a company&rsquo;s database with a cyber-attack and it becomes very public.&#160;</span>
+
+    </p>
+
+    <p style=""margin-top:0in;margin-right:0in;margin-bottom:1.1pt;margin-left:.5pt;text-indent:-.5pt;line-height:103%;font-size:11.0pt;font-family:Calibri,sans-serif;color:black;"">
+<span style=""color:#000000; font-size:9pt; font-family:Segoe UI;"">Let&rsquo;s also say, the cause of this data breach was an employee accidentally clicking on a link, which provided access to the database to the hacker.</span>
+
+    </p>
+
+    <p style=""margin-top:0in;margin-right:0in;margin-bottom:1.1pt;margin-left:.5pt;text-indent:-.5pt;line-height:103%;font-size:11.0pt;font-family:Calibri,sans-serif;color:black;"">
+<span style=""color:#000000; font-size:9pt; font-family:Segoe UI;"">&#160;</span>
+
+    </p>
+
+    <p style=""margin-top:0in;margin-right:0in;margin-bottom:1.1pt;margin-left:.5pt;text-indent:-.5pt;line-height:103%;font-size:11.0pt;font-family:Calibri,sans-serif;color:black;"">
+<span style=""color:#000000; font-size:9pt; font-family:Segoe UI;"">Customer files a claim against your companyâ€¦</span>
+
+    </p>
+
+    <p>
+<b><span style=""color:#000000; font-size:9pt; font-family:Segoe UI;"">Cyber Liability (Line of Business)</span></b><span style=""color:#000000; font-size:9pt; font-family:Segoe UI;""> insurance will cover the costs if the company is attacked by an outsider through a data breach or cyberattack.</span>
+
+    </p>
+
+    <p>
+<span style=""font-family:Segoe UI; color:#000000; font-size:9pt;;line-height:103%;""><b>Technology errors and omissions (Line of Business)</b> insurance would cover instances of negligence and product failures. By contrast, Technology E&amp;O coverage applies when you have had a hand in what went wrong for a customer. In this case, data breach was caused by an employee.</span><span style=""color:#000000; font-size:9pt; font-family:Segoe UI;""> </span>
+
+    </p>
+
+    <p style=""margin-top:0in;margin-right:0in;margin-bottom:1.1pt;margin-left:.5pt;text-indent:-.5pt;line-height:103%;font-size:11.0pt;font-family:Calibri,sans-serif;color:black;"">
+<span style=""color:#000000; font-size:9pt; font-family:Segoe UI;"">&#160;</span><span style=""font-size:9pt;""> </span>
+
+    </p>
+
+</body>
+</html>",0.0,modified_edit_distance
+ANNUAL_PREMIUM,Guideline Annual Premium,"This is the premium that needs to be paid for all years to endow the contract, based on guaranteed assumptions. (The Guideline Annual Premium is determined using assumptions specified in Internal Revenue Code Section 7702, and used in the test for whether a contract qualifies as life insurance. This is a US specific property.)",1.0,best_paired_tokens_edit_distance
