@@ -64,6 +64,7 @@ from gensim.models import Word2Vec
 
 # Create a Word2Vec model and train it on the tokens list.
 model = Word2Vec([tokens], vector_size=100, window=5, min_count=1, workers=4)
+
 token_encodings = {token: model.wv[token] for token in tokens}
 
 # for token, encoding in token_encodings.items():
